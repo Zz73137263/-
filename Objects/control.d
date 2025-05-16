@@ -32,7 +32,6 @@
 .\objects\control.o: D:\keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\control.o: Hardware\control.h
 .\objects\control.o: Hardware\OLED.h
-.\objects\control.o: Hardware\LED.h
 .\objects\control.o: .\System\Timer.h
 .\objects\control.o: Hardware\Key.h
 .\objects\control.o: Hardware\RP.h
@@ -43,3 +42,4 @@
 .\objects\control.o: Hardware\PWM.h
 .\objects\control.o: Hardware\PID.h
 .\objects\control.o: .\System\MPU6050.h
+.\objects\control.o: Hardware\Servo.h

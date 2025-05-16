@@ -150,45 +150,45 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>280</LineNumber>
+          <LineNumber>64</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134226782</Address>
+          <Address>134219558</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\lenovo\Desktop\骞宠　灏忚溅绋嬪簭\System\MPU6050.c</Filename>
+          <Filename>C:\Users\lenovo\Desktop\鐗╂祦灏忚溅\Hardware\control.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Project\System/MPU6050.c\280</Expression>
+          <Expression>\\Project\Hardware/control.c\64</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>PWM</ItemText>
+          <ItemText>current_set</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>((uint16_t)0x4000)</ItemText>
+          <ItemText>x</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>((uint16_t)0x8000)</ItemText>
+          <ItemText>speed_set</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Compare</ItemText>
+          <ItemText>y</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Compare</ItemText>
+          <ItemText>motor.motor_set[0].speed_set </ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -1023,30 +1023,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Hardware\LED.c</PathWithFileName>
-      <FilenameWithoutPath>LED.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>4</GroupNumber>
-      <FileNumber>64</FileNumber>
-      <FileType>5</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>.\Hardware\LED.h</PathWithFileName>
-      <FilenameWithoutPath>LED.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>4</GroupNumber>
-      <FileNumber>65</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>.\Hardware\Key.c</PathWithFileName>
       <FilenameWithoutPath>Key.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -1054,7 +1030,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>66</FileNumber>
+      <FileNumber>64</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1066,7 +1042,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>67</FileNumber>
+      <FileNumber>65</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1078,7 +1054,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>68</FileNumber>
+      <FileNumber>66</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1090,7 +1066,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>69</FileNumber>
+      <FileNumber>67</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1102,7 +1078,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>70</FileNumber>
+      <FileNumber>68</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1114,7 +1090,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>71</FileNumber>
+      <FileNumber>69</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1126,7 +1102,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>72</FileNumber>
+      <FileNumber>70</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1138,7 +1114,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>73</FileNumber>
+      <FileNumber>71</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1150,7 +1126,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>74</FileNumber>
+      <FileNumber>72</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1162,7 +1138,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>75</FileNumber>
+      <FileNumber>73</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1174,7 +1150,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>76</FileNumber>
+      <FileNumber>74</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1186,7 +1162,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>77</FileNumber>
+      <FileNumber>75</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1198,7 +1174,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>78</FileNumber>
+      <FileNumber>76</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1210,7 +1186,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>79</FileNumber>
+      <FileNumber>77</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1222,7 +1198,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>80</FileNumber>
+      <FileNumber>78</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1234,7 +1210,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>81</FileNumber>
+      <FileNumber>79</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1246,7 +1222,7 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>82</FileNumber>
+      <FileNumber>80</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -1258,13 +1234,37 @@
     </File>
     <File>
       <GroupNumber>4</GroupNumber>
-      <FileNumber>83</FileNumber>
+      <FileNumber>81</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Hardware\ad.h</PathWithFileName>
       <FilenameWithoutPath>ad.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>82</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Hardware\Servo.c</PathWithFileName>
+      <FilenameWithoutPath>Servo.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>83</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Hardware\Servo.h</PathWithFileName>
+      <FilenameWithoutPath>Servo.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

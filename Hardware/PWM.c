@@ -8,7 +8,7 @@ void PWM_Init(void)
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-	GPIO_InitStructure.GPIO_Pin = MotorA_PWM|MotorB_PWM;
+	GPIO_InitStructure.GPIO_Pin = MotorA_PWM|MotorB_PWM|MotorC_PWM|MotorD_PWM;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(PWM_GPIO, &GPIO_InitStructure);
 	

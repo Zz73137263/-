@@ -3,7 +3,6 @@
 #include "math.h"
 #include "control.h"
 #include "OLED.h"
-#include "LED.h"
 #include "Timer.h"	
 #include "Key.h"
 #include "RP.h"
@@ -13,11 +12,14 @@
 #include "PWM.h"
 #include "PID.h"
 #include "MPU6050.h"
+#include "Servo.h"
 
 ChassisMotor_t          ChassisMotor; 
 uint8_t red_stop ;											
 uint8_t qr_11    ;	
 uint8_t qr_12    ;
+uint8_t qr_21    ;	
+uint8_t qr_22    ;
 
 
 
@@ -36,21 +38,45 @@ void ALL_Init(void){
 	ChassisMotor.maxRpm_Right[3] = 345;
 	
 	
-	OLED_Init();
 	Motor_Init();
 	Encoder_Init();
-	Serial_Init();
 	PWM_Init();
-	MPU6050_Init();
-	Timer_Init();
+//	Timer_Init();
 	
 	//树莓派相连引脚初始
 	GPIO_InitTypeDef GPIO_InitStructure;
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = redclose | QR_Code1 | QR_Code2;
+    GPIO_InitStructure.GPIO_Pin = redclose | QR_Code1 | QR_Code2| QR_Code3 | QR_Code4;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 }
+
+//测试
+void Chassis_test(void)
+{
+	ALL_Init();
+	
+////			float T1=3,T2=3,T3=3;
+////	
+////			Servo_SetAngle1(100);					//舱门打开并亮LED	
+////			Delay_s(4);
+////			Servo_SetAngle1(0);						//关闭舱门		
+////            Chassis_Move(0, MAXVy/2, T1);			//到达等待区
+////			while(red_stop == 0){Chassis_Move(0,0,0);}//等待
+////			Chassis_Move(0, MAXVy/2, T2);
+////			Chassis_Move(-MAXVx/2,0, T3);			//转弯到达收货仓
+////			Servo_SetAngle1(100);					//舱门打开
+////			Delay_s(4);
+////			Servo_SetAngle1(0);						//关闭舱门		
+////			Chassis_Move(MAXVx/2,0, T3);
+////			Chassis_Move(0,-MAXVy/2, T2+T1);
+
+			MotorA_SetPWM(50);
+			MotorB_SetPWM(50);
+			MotorC_SetPWM(50);
+			MotorD_SetPWM(50);
+}
+
 
 //主控制函数
 void Chassis_Task(void)
@@ -58,40 +84,74 @@ void Chassis_Task(void)
 	ALL_Init();
 	while (1) {
         // 检测 GPIO 电平
-		qr_11    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1);    // 二维码11
-		qr_12    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2);    // 二维码12
+		qr_11    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3);    // 二维码11
+		qr_12    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4);    // 二维码12
+		qr_21    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_5);    // 二维码21
+		qr_22    = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_6);    // 二维码22
 
-		float T1,T2,T3;
+		float T1=3,T2=3,T3=3;
 		
         if (qr_11) 
 			{
-			//识别舱门打开并亮LED	
-			//打开收货仓1	
-			//检测仓门关闭	
-            Chassis_Move(0, MAXVy/2, T1);//到达等待区
+			Servo_SetAngle1(100);					//舱门打开并亮LED	
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+            Chassis_Move(0, MAXVy/2, T1);			//到达等待区
 			while(red_stop == 0){Chassis_Move(0,0,0);}//等待
 			Chassis_Move(0, MAXVy/2, T2);
-			Chassis_Move(MAXVx/2,0, T3);//转弯到达收货仓
-			//打开舱门
-			//检测仓门关闭
-			Chassis_Move(-MAXVx/2,0, T3);
+			Chassis_Move(-MAXVx/2,0, T3);			//转弯到达收货仓
+			Servo_SetAngle1(100);					//舱门打开
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+			Chassis_Move(MAXVx/2,0, T3);
 			Chassis_Move(0,-MAXVy/2, T2+T1);
 			} 
 		else if (qr_12) 
 			{
-			//识别舱门打开并亮LED	
-			//打开仓门2	
-			//检测仓门关闭	
-            Chassis_Move(0, MAXVy/2, T1);//到达等待区
+			Servo_SetAngle1(100);					//舱门打开并亮LED	
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+            Chassis_Move(0, MAXVy/2, T1);			//到达等待区
 			while(red_stop == 0){Chassis_Move(0,0,0);}//等待
 			Chassis_Move(0, MAXVy/2, T2);
-			Chassis_Move(MAXVx/2,0, T3);//转弯到达收货仓
-			//打开舱门2
-			//检测仓门关闭
+			Chassis_Move(MAXVx/2,0, T3);			//转弯到达收货仓
+			Servo_SetAngle1(100);					//舱门打开
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
 			Chassis_Move(-MAXVx/2,0, T3);
-			Chassis_Move(0,-MAXVy/2, T2+T1);
-			//等待
+			Chassis_Move(0,MAXVy/2, T2+T1);
 			} 
+		else if (qr_21) 
+			{
+			Servo_SetAngle2(100);					//舱门打开并亮LED	
+			Delay_s(4);
+			Servo_SetAngle2(0);						//关闭舱门		
+            Chassis_Move(0, MAXVy/2, T1);			//到达等待区
+			while(red_stop == 0){Chassis_Move(0,0,0);}//等待
+			Chassis_Move(0, MAXVy/2, T2);
+			Chassis_Move(-MAXVx/2,0, T3);			//转弯到达收货仓
+			Servo_SetAngle1(100);					//舱门打开
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+			Chassis_Move(MAXVx/2,0, T3);
+			Chassis_Move(0,MAXVy/2, T2+T1);
+			} 
+		else if (qr_22) 
+			{
+			Servo_SetAngle1(100);					//舱门打开并亮LED	
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+            Chassis_Move(0, MAXVy/2, T1);			//到达等待区
+			while(red_stop == 0){Chassis_Move(0,0,0);}//等待
+			Chassis_Move(0, MAXVy/2, T2);
+			Chassis_Move(MAXVx/2,0, T3);			//转弯到达收货仓
+			Servo_SetAngle1(100);					//舱门打开
+			Delay_s(4);
+			Servo_SetAngle1(0);						//关闭舱门		
+			Chassis_Move(-MAXVx/2,0, T3);
+			Chassis_Move(0,MAXVy/2, T2+T1);
+			} 
+			
     }
 	
 	
@@ -119,18 +179,7 @@ void ChassisCalculate(float Vx, float Vy,  ChassisMotor_t *speedcalc)
     speedcalc->motor.motor_set[1].speed_set = (((-1) * sqrt(2) / 2) * Vx - (sqrt(2) / 2) * Vy  ) * K;
     speedcalc->motor.motor_set[2].speed_set = (-(sqrt(2) / 2) *Vx + (sqrt(2) / 2) * Vy  ) * K;
     speedcalc->motor.motor_set[3].speed_set = ((sqrt(2) / 2) * Vx + (sqrt(2) / 2) * Vy  ) * K;
-    for(int i = 0; i < 4; i++)
-    {
-        speedcalc->motor.motor_set[i].speed_set = speedcalc->motor.motor_set[i].speed_set * ChassisMotor.speedtap[ChassisMotor.gear - 1];
-		if(speedcalc->motor.motor_set[i].speed_set > 0)
-        {
-            if(speedcalc->motor.motor_set[i].speed_set > ChassisMotor.maxRpm_Left[i]){speedcalc->motor.motor_set[i].speed_set = ChassisMotor.maxRpm_Left[i];}
-        }
-        if(speedcalc->motor.motor_set[i].speed_set < 0)
-        {
-            if(speedcalc->motor.motor_set[i].speed_set < -ChassisMotor.maxRpm_Right[i]){speedcalc->motor.motor_set[i].speed_set = -ChassisMotor.maxRpm_Right[i];}
-        }
-	}
+
 	
 	for(int j = 0; j < 4; j++)
    {
@@ -138,11 +187,9 @@ void ChassisCalculate(float Vx, float Vy,  ChassisMotor_t *speedcalc)
 	   if(speedcalc->motor.motor_set[j].speed_set > 0)
 			{
 			speedcalc->motor.motor_set[j].current_set = ((uint16_t)((speedcalc->motor.motor_set[j].speed_set / ChassisMotor.maxRpm_Left[j]) * 100));}
-		    if(speedcalc->motor.motor_set[j].current_set > 100){speedcalc->motor.motor_set[j].current_set = 100;	}
        if(speedcalc->motor.motor_set[j].speed_set < 0)
 		    {
 			speedcalc->motor.motor_set[j].current_set = ((uint16_t)((speedcalc->motor.motor_set[j].speed_set / ChassisMotor.maxRpm_Right[j]) * 100));}
-		    if(speedcalc->motor.motor_set[j].current_set > 100){speedcalc->motor.motor_set[j].current_set = 100;	}
    }
 }
 

@@ -71,15 +71,18 @@ extern ChassisMotor_t ChassisMotor;
 #define MAXVy           79000.4
 #define K              1 / (2 * PI * Wheel_R)          //底盘解算转速系数 188.4
 
-#define redclose    GPIO_Pin_0		//常态高，红灯小于80mm给低，绿灯回高
-#define QR_Code1	GPIO_Pin_1
-#define QR_Code2    GPIO_Pin_2
-
+#define redclose    GPIO_Pin_2		//常态高，红灯小于80mm给低，绿灯回高
+#define QR_Code1	GPIO_Pin_3
+#define QR_Code2    GPIO_Pin_4
+#define QR_Code3	GPIO_Pin_5
+#define QR_Code4    GPIO_Pin_6
 
 
 void ALL_Init(void);       
 void Chassis_Move(float x,float y,float t);
 void ChassisCalculate(float Vx, float Vy,  ChassisMotor_t *speedcalc);
 void Motor_Control(int8_t current_1,int8_t current_2,int8_t current_3,int8_t current_4);
+void Chassis_test(void);
+void Chassis_Task(void);
 
 #endif

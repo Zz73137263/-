@@ -5,10 +5,9 @@
 
 int main(void)
 {
-	ALL_Init();
+	Chassis_test();
 	while (1)
 	{
-		
 	}
 }
 

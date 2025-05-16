@@ -706,16 +706,6 @@
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
-              <FileName>LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\LED.c</FilePath>
-            </File>
-            <File>
-              <FileName>LED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\LED.h</FilePath>
-            </File>
-            <File>
               <FileName>Key.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Hardware\Key.c</FilePath>
@@ -809,6 +799,16 @@
               <FileName>ad.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\ad.h</FilePath>
+            </File>
+            <File>
+              <FileName>Servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Servo.h</FilePath>
             </File>
           </Files>
         </Group>

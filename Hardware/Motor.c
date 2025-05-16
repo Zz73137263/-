@@ -96,8 +96,8 @@ void MotorC_SetPWM(int8_t Compare)
 	}
 	else
 	{
-		GPIO_SetBits(MotorA_GPIO, AIN2);
-		GPIO_ResetBits(MotorA_GPIO, AIN1);
+		GPIO_SetBits(MotorC_GPIO, CIN2);
+		GPIO_ResetBits(MotorC_GPIO, CIN1);
 		PWM_SetCompareC(-Compare);
 	}
 }
